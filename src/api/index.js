@@ -3,6 +3,7 @@ const cloudinary = require('cloudinary');
 const multer = require("multer");
 const cloudinaryStorage = require("multer-storage-cloudinary");
 
+
 const Jersey = require('../models/Jersey');
 
 const router = express.Router();
@@ -25,7 +26,7 @@ const parser = multer({ storage: storage });
 // jersery routes here
 router.get('/', (req, res) => {
     res.status(200).json({
-        message: 'API - LAST SEASON'
+        message: 'API - THIS SEASON'
     });
 });
 
@@ -43,8 +44,6 @@ router.post('/jerseys', parser.single('image'), async (req, res) => {
     const { name, price, kit } = req.body;
     const image_url = req.file.url;
 
-    // console.log(req.body);
-
     const jersey = new Jersey({
         name,
         image_url,
@@ -59,7 +58,6 @@ router.post('/jerseys', parser.single('image'), async (req, res) => {
             jersey: data,
         });
     } catch (error) {
-        // console.log(error);
         res.status(500).json({
             error: 'server error',
         });
