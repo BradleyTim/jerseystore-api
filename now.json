@@ -3,14 +3,14 @@
   "name": "seasonstock-api",
   "builds": [
     {
-      "src": "src/app.js",
+      "src": "src/index.js",
       "use": "@now/node-server"
     }
   ],
   "routes": [
     {
       "src": "/.*",
-      "dest": "src/app.js"
+      "dest": "src/index.js"
     }
   ],
   "alias": [
