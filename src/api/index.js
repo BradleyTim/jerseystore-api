@@ -64,4 +64,15 @@ router.post('/jerseys', parser.single('image'), async (req, res) => {
     }
 });
 
+router.get('/jerseys/:id', async (req, res) => {
+
+    const id = req.params.id;
+
+    const jersey = await Jersey.findById(id);
+
+    res.status(200).json({
+        jersey,
+    });
+});
+
 module.exports = router;
