@@ -75,4 +75,18 @@ router.get('/jerseys/:id', async (req, res) => {
     });
 });
 
+router.delete('/jerseys/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const jersey = await Jersey.deleteOne({ _id: id});
+        res.status(200).json({
+            msg: 'Jersey deleted successfully',
+        });
+    } catch (error) {
+        res.status(500).json({
+            error: 'server error',
+        });
+    }
+});
+
 module.exports = router;
