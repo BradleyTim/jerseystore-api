@@ -26,7 +26,8 @@ const parser = multer({ storage: storage });
 // jersery routes here
 router.get('/', (req, res) => {
     res.status(200).json({
-        message: 'API - THIS SEASON'
+        message: 'API - THIS SEASON',
+        developer: 'Bradley Tim'
     });
 });
 
